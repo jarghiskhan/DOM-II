@@ -6,8 +6,10 @@ const logoHeader = document.querySelector(".logo-heading");
 const letsGoImg = document.querySelector(".content-section .img-content img");
 const pObject =  document.querySelectorAll("p");
 const pickYourDestinationImg = document.querySelector(".content-destination img");
+const stopPropagation1 = document.querySelector(".text-content");
+const stopPropagation2 = document.querySelector(".text-content h2");
 
-console.log(pickYourDestinationImg);
+console.log(stopPropagation1);
 
 //mouseenter
 navButtons[0].addEventListener("mouseenter", () => {
@@ -72,3 +74,16 @@ pickYourDestinationImg.addEventListener('dblclick',(event)=>{
     pickYourDestinationImg.src="https://www.closerweekly.com/wp-content/uploads/2020/01/tom-selleck-magnum-pi.jpg?resize=1180%2C1814"
 })
 
+//stopPropagation. With the line stopPropagation added, the div event won't trigger. Only the logo event will.
+stopPropagation1.addEventListener('click', ()=>{
+    alert(`Clicked the Let's Go div!`);
+})
+stopPropagation2.addEventListener('click', (event)=>{
+    alert(`Clicked the text Let's Go`);
+    event.stopPropagation();
+}
+);
+//preventDefault to prevent refreshing the page and going to the link.
+navButtons.addEventListener("click", ()=>{
+    preventDefault();
+})
